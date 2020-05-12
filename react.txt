@@ -1,0 +1,113 @@
+﻿1.安装react脚手架工具
+  13年facebook内部的开源项目 react   react只是做view视图层框架（MCV）、
+
+  全局安装  
+  cnpm install -g create-react-app
+
+  create-react-app 项目名称
+
+
+
+  项目安装比较慢的话：
+  npm config set registry https://registry.npm.taobao.org
+  配置后可通过下面方式来验证是否成功 
+  npm config get registry
+
+
+  cd react-todolist
+  cnpm start (yarn start)
+
+2.项目分析
+  src/index.js 入口文件
+
+
+3.创建TodoList组件
+
+ import React,{Component} from "react";
+
+
+class TodoList extends Component{
+
+  render(){
+    return <div>hello world!</div>
+  }
+}
+
+export default TodoList;
+
+
+
+
+index.js文件：
+ 
+  import TodoList from './TodoList';
+  ReactDOM.render(<TodoList />, document.getElementById('root'));
+
+
+
+4.实现list数据的展示
+
+
+<ul>
+  {
+    this.state.list.map((item,index)=>{
+      return (
+        <div @key={index}>
+            {item}
+        </div>
+      );
+    })
+
+  }
+</ul>
+
+
+5.点击每一项div的时候，删除？
+
+ onClick={this.handleItemClick.bind(this,index)}
+
+ //点击每一项的时候，进行删除
+  handleItemClick(index){
+    //console.log(index);  扩展运算符
+    const list = [...this.state.list];
+    list.splice(index,1);   
+    this.setState({
+      list:list
+    });
+  }
+
+
+6.点击提交
+onClick={this.handleSubmit}
+
+//construcotr
+this.handleSubmit = this.handleSubmit.bind(this);
+
+
+
+//提交按钮
+handleSubmit(){
+  this.setState({
+    list:[...this.state.list,this.state.inputValue],
+    inputValue:""
+  });
+}
+
+
+7.jsx模板简单的一些语法
+  1）注释
+   {/**/}
+
+  2)需求 div渲染的时候进行标签的渲染
+
+  <div
+    dangerouslySetInnerHTML={{__html:item}}
+  >
+  </div>
+
+
+  3)  <label htmlFor="inputArea">点我获取焦点：</label>
+      <input
+          id="inputArea" 
+
+  4)style={{backgroundColor:"blue",width:30,marginTop:30}}

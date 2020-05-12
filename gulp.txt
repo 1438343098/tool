@@ -1,0 +1,66 @@
+﻿1.gulp介绍：
+gulp是基于流的自动化构建工具 开发者可以使用它构建自动化工作流程（前端开发集成环境）
+使用gulp可以简化工程，把工作重心转移到功能开发上面。
+
+
+2. 作用？
+ 使用gulp可以使网页自动刷新
+ 使用gulp可以对sass/less进行预处理   js代码检测  图片压缩等
+ 
+
+3. 特点？
+1）代码优于配置，方便好记
+2）插件的高质量工作
+3）利用node.js流的特点，可以快速构建前端项目并且减少频繁的IO操作
+4）简单易学，提供了方便好记的API方法
+
+
+4.安装gulp   （基于node.js  全局安装node.js）
+  cnpm install -g gulp  (yarn)
+
+5. 创建项目  d/gulp  
+      本项目中安装gulp
+  
+   1)cnpm init 项目名 创建一个package.json配置文件
+   2)cnpm install --save-dev gulp  在本项目中安装gulp
+   3)gulp命令的运行     No gulpfile found
+   4)创建gulpfile.js文件    运行gulp命令
+     Task 'default' is not in your gulpfile
+   5)创建default  task
+     	运行gulp  (gulp default)
+   6)gulp.src用于创建文件处理流,通过该方法创建的文件流可以pipe到别的插件.
+
+           如果需要合并文件的话，需要安装插件  gulp-concat
+    cnpm install --save-dev gulp-concat
+   
+   
+6.less安装
+  cnpm install --save-dev gulp-less   gulp-minify-css
+   
+7. 
+
+  jshint gulp-jshint 对于js代码的检验
+  jshint-stylish
+  
+  gulp-uglify js插件的压缩 
+   
+8. browser-sync
+
+ var browserSync = require("browser-sync");
+ 
+ browserSync.init({
+		server:{
+			base:"/",
+			index:"index.html"
+		},
+		open:false
+	});
+	//通过watch方法监控文件变化
+	gulp.watch("./src/script/**/*.js",["script"]);
+	gulp.watch("./src/less/index.less",["style"]);
+   
+   
+  //script和style
+ .pipe(browserSync.stream())  
+   
+  

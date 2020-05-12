@@ -1,0 +1,5 @@
+先上传一个随意转ttf格式
+https://cloudconvert.com/otf-to-ttf
+
+再把ttf上传下面网站得到全部格式
+https://everythingfonts.com/font-face

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <div id="addiv">
+      <div class="img1 imgdiv">
+        <img src="http://img4.duitang.com/uploads/item/201408/01/20140801233742_KW44d.jpeg" alt="" class="imgbg">
+      </div>
+      <div class="img2 imgdiv">
+        <img src="http://attach.bbs.miui.com/forum/201207/04/145803f9uh1unl1grxlhih.jpg" alt="" class="imgbg">
+      </div>
+    </div>
+</body>
+</html>
+<style>
+*{
+    margin:0;
+    padding:0;
+}
+
+#addiv{
+  overflow:hidden;
+  width:630px;
+  height:350px;
+  position:relative;
+}
+.imgdiv{
+  position:absolute;
+  width:100%;
+  height:100%;
+  left:0px;
+  top:0px;
+  overflow:hidden;
+}
+.imgbg{
+  display:block;
+  width:680px;
+  position: absolute;
+  left:0px;
+  top:0px;
+
+}
+.img2{
+    animation: imgdiv 3s linear infinite alternate;
+
+}
+.img2 .imgbg{
+    animation: img 3s linear infinite alternate;
+}
+@keyframes imgdiv
+{
+    0% {width: 1400px;height:1400px;left:-550px;top:-650px;border-radius:700px;}
+    100% {width:0;height:0;left:150px;top:50px;border-radius:0;}
+}
+@keyframes img
+{
+    0% {left:550px;top:650px;}
+    100% {left:-150px;top:-50px;}
+}
+</style>

@@ -1,0 +1,8 @@
+cnpm install
+
+确保npm 是最新版本
+npm cache clean --force  清缓存
+
+关闭安全软件
+
+删除c/USERS/用户/.cnpm

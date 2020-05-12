@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="jquery-3.4.1.min.js"></script>
+		<script type="text/javascript" src="valid.js"></script>
+	</head>	
+	<body>
+		<form class="forms">
+			<input type="text" name="name"  />
+			<input type="password" name="pwd"  />
+			<input type="password" name="pwd2" />
+			<div id="sub">提交</div>
+		</form>
+	</body>
+	<script type="text/javascript">
+		var reg = [{
+			name:"name",
+			type:"len",
+			reg:"0,9",
+			msg:"最多9个字母"
+		},{
+			name:"pwd",
+			type:"reg",
+			reg:"/^[a-z0-9]{6,10}/img",
+			msg:"请输入6-10位的数字字母密码"
+		},{
+			name:"pwd2",
+			type:"val",
+			typeName:"pwd",
+			msg:"两次密码不一样"
+		}];
+		var valid = new Validation(".forms","#sub",reg,true)	
+//		valid.click(function (data){
+//			console.log(data,"方法click") 
+//		})
+//		valid.change(function (data){
+//			console.log(data,"方法change")
+//		},false)
+		valid.blur(function (data){
+			console.log(data,"方法blur")
+		})
+	</script>
+</html>

@@ -1,0 +1,88 @@
+一.  git最基本的命令
+
+1.下载git
+
+2. 配置用户信息
+  git config --global user.name  ""
+  git config --global user.email ""
+
+  git config --list
+
+3.git status 查看git的状态
+  不是git仓库，所以需要进行初始化操作（git init）   ls -a 是查看所有的文件
+
+
+4. 在demo里面创建一个text.txt文件
+   echo "git demo" >> text.txt
+
+5. git status查看状态， 需要将工作区text.txt文件通过git add命令添加到暂存区
+
+   git add text.txt (工作区----> 暂存区)
+
+6. git status查看状态
+   需要再将暂存区的文件提交到本地仓库中
+   git commit -m "first commit!" 
+
+
+
+二. git工作流 （创建demo2）
+   1. git init 初始化仓库
+   2. echo "test file" >> test.txt
+   3. git add test.txt  工作区的test.txt文件放入到暂存区
+   4. git commit -m "first commit!" 将暂存区的文件提交到本地仓库
+
+   5. 产品经理说：
+	文件添加了新的内容之后，需要放到暂存区里面。（git add test.txt）
+        昨天的修改的内容不行，不准提交
+        （1. 将暂存区里面的test.txt文件回滚到工作区   git reset HEAD test.txt）
+         (2. 将工作区里面的内容进行回滚    git checkout -- test.txt)
+
+
+   6. 又开始写了一些功能，需要提交
+      产品经理说：
+	但是我只是需要第一次提交的结果，第二次提交我们不需要
+       （1. git log   2.git reset --hard 编号）
+
+   7. 工作区内容删掉 （1)git rm test.txt  2)git commit -m "test.txt delete commit!"）
+
+
+
+三. 远程仓库连接（代码上传、多人开发协作）
+    例如链接github(注册 ssh key)
+
+    1.ssh-keygen -t rsa -C "asdsada@qq.com"
+
+    2.cd ~   切换到c盘目录
+    
+      ls -a  (.ssh/)
+
+    3. cd .ssh
+
+    4. cat id_rsa.pub(查看文件)
+
+    5. 查看是否联通（ssh -T git@github.com）
+
+
+    6. cd /e/git-all/demo3  (pwd看目录路径)
+
+    7. git init   git add   git commit
+   
+    8. vim test.txt(编辑文件  i插入内容   内容写完之后esc   :wq保存修改的文件)
+    
+    9. 点击+添加远程仓库  
+
+
+
+https://www.syntevo.com/smartgit/download/   git可视化工具
+
+
+
+
+
+
+
+
+
+
+
+

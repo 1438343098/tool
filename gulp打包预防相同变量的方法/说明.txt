@@ -1,0 +1,18 @@
+//安装gulp-insert
+var insert = require("gulp-insert");
+var sourcemaps = require("gulp-sourcemaps");
+
+
+// 代码预防相同处理方式
+	.pipe(insert.transform(function(contents,file){
+			var path = file.relative;
+			if(path !== "index.js"){
+				var prepend = "registJS.add('"+path.replace('\\','/')+"',function(){\n";
+				var append = "\n});\nregistJS.get('"+path.replace('\\','/')+"')()";
+				return prepend+contents+append;
+			}
+			return contents;
+		}))
+	.pipe(sourcemaps.init())
+	.pipe(concat("index.js"))
+	.pipe(sourcemaps.write())
